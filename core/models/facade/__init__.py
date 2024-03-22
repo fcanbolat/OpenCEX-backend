@@ -141,7 +141,7 @@ class Profile(BaseModel):
     def drop_sms(self):
         with atomic():
             self.withdrawals_sms_confirmation = False
-            self.set_payouts_freeze(60 * 24 * 3)
+            self.set_payouts_freeze(60 * 24 * 1)
             SmsHistory.objects.create(
                 user=self.user,
                 withdrawals_sms_confirmation=False,
